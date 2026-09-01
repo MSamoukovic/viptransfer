@@ -140,6 +140,10 @@
 
         }
 
+        li {
+    list-style: none;
+}
+
     </style>
 
 </head>
@@ -154,8 +158,27 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+        BHS
+    </a>
+
+    <ul class="dropdown-menu">
+        <li>
+            <a class="dropdown-item" href="#" onclick="changeLanguage('bs')">🇧🇦 BHS</a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#" onclick="changeLanguage('en')">🇬🇧 English</a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#" onclick="changeLanguage('ar')">🇸🇦 العربية</a>
+        </li>
+    </ul>
+</li>
+
 
         <div class="collapse navbar-collapse" id="navMenu">
+            
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="#about">O nama</a></li>
                 <li class="nav-item"><a class="nav-link" href="#destinations">Destinacije</a></li>
@@ -455,5 +478,40 @@ $(document).ready(function(){
 
 </script>
 
+
+<div id="google_translate_element" style="display:none;"></div>
+
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'bs',
+        includedLanguages: 'bs,en,ar',
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+<script>
+function changeLanguage(lang) {
+
+    const select = document.querySelector('.goog-te-combo');
+
+    if (!select) {
+        console.log("Google Translate još nije učitan.");
+        return;
+    }
+
+    select.value = lang;
+    select.dispatchEvent(new Event('change'));
+
+    document.getElementById('languageDropdown').innerHTML =
+        lang === 'en' ? '🌐 English ▾' :
+        lang === 'ar' ? '🌐 العربية ▾' :
+        '🌐 BHS ▾';
+}
+</script>
 </body>
 </html>
