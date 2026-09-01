@@ -144,6 +144,24 @@
     list-style: none;
 }
 
+
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
+/* Sakrij samo Google Translate gornju traku */
+body > .skiptranslate {
+    display: none !important;
+}
+
+
+
+
     </style>
 
 </head>
@@ -477,8 +495,7 @@ $(document).ready(function(){
 });
 
 </script>
-
-
+<!-- Google Translate -->
 <div id="google_translate_element" style="display:none;"></div>
 
 <script>
@@ -494,6 +511,7 @@ function googleTranslateElementInit() {
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
+<!-- Promjena jezika -->
 <script>
 function changeLanguage(lang) {
 
@@ -507,11 +525,63 @@ function changeLanguage(lang) {
     select.value = lang;
     select.dispatchEvent(new Event('change'));
 
-    document.getElementById('languageDropdown').innerHTML =
-        lang === 'en' ? '🌐 English ▾' :
-        lang === 'ar' ? '🌐 العربية ▾' :
-        '🌐 BHS ▾';
+    const button = document.querySelector('.navbar .dropdown-toggle');
+
+    if (button) {
+        if (lang === 'en') {
+            button.innerHTML = 'English';
+        } 
+        else if (lang === 'ar') {
+            button.innerHTML = 'العربية';
+        } 
+        else {
+            button.innerHTML = 'BHS';
+        }
+    }
+
+    // Sakrij Google traku odmah nakon promjene jezika
+    hideGoogleBar();
 }
+
+
 </script>
+
+
+<!-- Sakrivanje Google Translate trake -->
+<script>
+function hideGoogleBar() {
+
+    // Google banner
+    const banner = document.querySelector('.goog-te-banner-frame');
+
+    if (banner) {
+        banner.style.display = 'none';
+        banner.style.visibility = 'hidden';
+        banner.style.height = '0px';
+    }
+
+    // Google iframe
+    const iframe = document.querySelector('iframe.goog-te-banner-frame');
+
+    if (iframe) {
+        iframe.style.display = 'none';
+        iframe.style.visibility = 'hidden';
+        iframe.style.height = '0px';
+    }
+
+    // Google mijenja poziciju body elementa
+    document.body.style.top = '0px';
+    document.body.style.position = '';
+}
+
+
+// Provjerava svakih 100 ms
+setInterval(hideGoogleBar, 100);
+
+
+// Provjeri i nakon učitavanja stranice
+window.addEventListener('load', hideGoogleBar);
+</script>
+
 </body>
 </html>
