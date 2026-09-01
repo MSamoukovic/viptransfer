@@ -169,41 +169,87 @@ body > .skiptranslate {
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
     <div class="container">
+
+        <!-- LOGO LIJEVO -->
         <a class="navbar-brand fw-bold" href="#">
             RENT A CAR
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-        BHS
-    </a>
+        <!-- DESNA STRANA -->
+        <div class="d-flex align-items-center ms-auto">
 
-    <ul class="dropdown-menu">
-        <li>
-            <a class="dropdown-item" href="#" onclick="changeLanguage('bs')">🇧🇦 BHS</a>
-        </li>
-        <li>
-            <a class="dropdown-item" href="#" onclick="changeLanguage('en')">🇬🇧 English</a>
-        </li>
-        <li>
-            <a class="dropdown-item" href="#" onclick="changeLanguage('ar')">🇸🇦 العربية</a>
-        </li>
-    </ul>
-</li>
+            <!-- JEZIK -->
+            <div style = "padding-right: 10px;" class="nav-item dropdown me-2">
+                <a class="nav-link dropdown-toggle"
+                   href="#"
+                   role="button"
+                   data-bs-toggle="dropdown">
+                    BHS
+                </a>
 
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <a class="dropdown-item"
+                           href="#"
+                           onclick="changeLanguage('bs')">
+                            🇧🇦 BHS
+                        </a>
+                    </li>
 
-        <div class="collapse navbar-collapse" id="navMenu">
-            
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#about">O nama</a></li>
-                <li class="nav-item"><a class="nav-link" href="#destinations">Destinacije</a></li>
-                <li class="nav-item"><a class="nav-link" href="#gallery">Vozila</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
-            </ul>
+                    <li>
+                        <a class="dropdown-item"
+                           href="#"
+                           onclick="changeLanguage('en')">
+                            🇬🇧 English
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item"
+                           href="#"
+                           onclick="changeLanguage('ar')">
+                            🇸🇦 العربية
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        
+
+            <!-- HAMBURGER -->
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
         </div>
+
+
+        <!-- NAVIGACIJA -->
+        <div class="collapse navbar-collapse" id="navMenu">
+
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">O nama</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#destinations">Destinacije</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#gallery">Vozila</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Kontakt</a>
+                </li>
+            </ul>
+
+        </div>
+
     </div>
 </nav>
 
